@@ -8,8 +8,8 @@
 	</parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javafx-weaver-springboot-starter-sample</artifactId>
-    <name>javafx-weaver-springboot-starter-sample</name>
+    <artifactId>ithildin-jfx</artifactId>
+    <name>Ithildin JavaFX Eldamo client</name>
 
     <properties>
         <java.level>11</java.level>

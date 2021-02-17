@@ -3,8 +3,8 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER"
-      fx:controller="net.rgielen.fxweaver.samples.springboot.starter.controller.MainWindow">
+      fx:controller="aduial.ithildin.controller.Henneth">
 
-    <Button fx:id="openDialogButton" text="Open Simple Dialog"/>
+    <Button fx:id="openDialogButton" text="Suilad meldis!"/>
 
 </VBox>

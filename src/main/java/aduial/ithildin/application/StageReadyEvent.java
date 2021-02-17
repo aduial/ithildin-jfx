@@ -1,4 +1,4 @@
-package net.rgielen.fxweaver.samples.springboot.starter.application;
+package aduial.ithildin.application;
 
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationEvent;

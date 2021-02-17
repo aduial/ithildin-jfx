@@ -1,4 +1,4 @@
-package net.rgielen.fxweaver.samples.springboot.starter.controller;
+package aduial.ithildin.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @FxmlView
-public class MainWindow {
+public class Henneth{
 
-    private final FxControllerAndView<SomeDialog, VBox> someDialog;
+    private final FxControllerAndView<Athrabeth, VBox> someDialog;
 
     @FXML
     public Button openDialogButton;
 
-    public MainWindow(FxControllerAndView<SomeDialog, VBox> someDialog) {
+    public Henneth(FxControllerAndView<Athrabeth, VBox> someDialog) {
         this.someDialog = someDialog;
     }
 

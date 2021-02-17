@@ -1,4 +1,4 @@
-package net.rgielen.fxweaver.samples.springboot.starter.controller;
+package aduial.ithildin.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -13,14 +13,11 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * DialogController.
- *
- * @author Rene Gielen
- * @noinspection WeakerAccess
+ * @author Lúthien
  */
 @Component
 @FxmlView
-public class SomeDialog {
+public class Athrabeth{
 
     private Stage stage;
 

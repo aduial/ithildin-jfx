@@ -1,24 +1,24 @@
-package net.rgielen.fxweaver.samples.springboot.starter.application;
+package aduial.ithildin.application;
 
+import aduial.ithildin.IthildinBootApplication;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import net.rgielen.fxweaver.samples.springboot.starter.FxWeaverSpringBootStarterSampleApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
- * @author <a href="mailto:rene.gielen@gmail.com">Rene Gielen</a>
+ * @author (original) Rene Gielen
  * @noinspection RedundantThrows
  */
-public class SpringbootJavaFxApplication extends Application {
+public class IthildinApplication extends Application {
 
     private ConfigurableApplicationContext context;
 
     @Override
     public void init() throws Exception {
         this.context = new SpringApplicationBuilder()
-                .sources(FxWeaverSpringBootStarterSampleApplication.class)
+                .sources(IthildinBootApplication.class)
                 .run(getParameters().getRaw().toArray(new String[0]));
     }
 

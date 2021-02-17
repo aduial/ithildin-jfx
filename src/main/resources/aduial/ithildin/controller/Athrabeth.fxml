@@ -5,8 +5,8 @@
 
 <VBox fx:id="dialog" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.232-ea"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="net.rgielen.fxweaver.samples.springboot.starter.controller.SomeDialog">
+      fx:controller="aduial.ithildin.controller.Athrabeth">
 
-    <Button fx:id="closeButton" mnemonicParsing="false" text="Close"/>
+    <Button fx:id="closeButton" mnemonicParsing="false" text="Novaer"/>
 
 </VBox>

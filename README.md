@@ -21,3 +21,6 @@ The original idea behind Ithildin is to offer a dictionary tool for practical us
 
 ##4: explore other use cases
 Because the data model allows for other languages besides those described by JRR Tolkien, there could be other areas where this application might prove useful.
+
+##5: create versions for mobile platforms
+ 

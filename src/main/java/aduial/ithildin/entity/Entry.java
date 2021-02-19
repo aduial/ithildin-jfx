@@ -1,7 +1,17 @@
 package aduial.ithildin.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * Created by luthien on 18/02/2021.
+ */
+@Entity
 public class Entry {
 
+  @Id
   private long id;
   private long formId;
   private long languageId;

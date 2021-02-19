@@ -5,7 +5,7 @@ import aduial.ithildin.application.IthildinApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * FxWeaverSpringBootStarterSampleApplication.
+ *
  * @author (original) Rene Gielen
  */
 @SpringBootApplication

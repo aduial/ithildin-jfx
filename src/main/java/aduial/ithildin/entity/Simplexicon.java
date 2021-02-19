@@ -1,8 +1,6 @@
 package aduial.ithildin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -22,6 +20,7 @@ public class Simplexicon {
   private String stem;
   private long entrytypeId;
 
+  protected Simplexicon() {}
 
   public long getId() {
     return id;

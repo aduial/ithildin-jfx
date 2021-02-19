@@ -19,6 +19,9 @@ public class Person {
 
     private String message;
 
+    public Person() {
+    }
+
     /**
      * @return the id
      */

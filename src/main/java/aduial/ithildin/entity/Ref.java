@@ -1,8 +1,6 @@
 package aduial.ithildin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -26,6 +24,7 @@ public class Ref {
   private long entrytypeId;
   private String source;
 
+  protected Ref() {}
 
   public long getId() {
     return id;

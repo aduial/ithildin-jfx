@@ -1,8 +1,6 @@
 package aduial.ithildin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -12,7 +10,7 @@ import javax.persistence.Id;
 public class Lexicon {
 
   @Id
-  private long id;
+  private long entryId;
   private String form;
   private String langMnemonic;
   private String langName;
@@ -27,13 +25,14 @@ public class Lexicon {
   private long entrytypeId;
   private String entryType;
 
+  protected Lexicon() {}
 
-  public long getId() {
-    return id;
+  public long getEntryId() {
+    return entryId;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setEntryId(long id) {
+    this.entryId = id;
   }
 
 

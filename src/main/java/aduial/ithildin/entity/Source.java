@@ -1,8 +1,6 @@
 package aduial.ithildin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -17,6 +15,7 @@ public class Source {
   private String prefix;
   private long sourcetypeId;
 
+  protected Source() {}
 
   public long getId() {
     return id;

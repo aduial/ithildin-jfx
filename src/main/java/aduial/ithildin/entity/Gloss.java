@@ -1,8 +1,6 @@
 package aduial.ithildin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -16,6 +14,7 @@ public class Gloss {
   private long languageId;
   private String txt;
 
+  protected Gloss() {}
 
   public long getId() {
     return id;

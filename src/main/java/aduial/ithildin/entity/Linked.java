@@ -1,8 +1,6 @@
 package aduial.ithildin.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -23,6 +21,7 @@ public class Linked {
   private String mark;
   private String source;
 
+  protected Linked() {}
 
   public long getId() {
     return id;

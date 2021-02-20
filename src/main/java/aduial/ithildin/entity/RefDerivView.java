@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class RefDerivView{
 
   @Id
-  private long entryidfrom;
+  private long entryId;
   private String form;
   private String glosses;
   private String sources;
@@ -18,11 +18,11 @@ public class RefDerivView{
   protected RefDerivView() {}
 
   public long getEntryidfrom() {
-    return entryidfrom;
+    return entryId;
   }
 
   public void setEntryidfrom(long entryidfrom) {
-    this.entryidfrom = entryidfrom;
+    this.entryId = entryId;
   }
 
 

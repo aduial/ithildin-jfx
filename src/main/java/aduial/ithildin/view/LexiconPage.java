@@ -11,8 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.web.WebView;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 /**
  * @author luthien
  */
@@ -39,7 +37,18 @@ public class LexiconPage{
     @Autowired
     private RefGlossRepo refGlossRepo;
 
-    private List<Ref> refList;
+    @Autowired
+    private RefDerivRepo refDerivRepo;
+
+    @Autowired
+    private RefInflectRepo refInflectRepo;
+
+    @Autowired
+    private RefElementRepo refElementRepo;
+
+    @Autowired
+    private RefCognateRepo refCognateRepo;
+
     private Entry     parent;
     private WebView   wv1;
     private WebView   wv2;
@@ -146,7 +155,7 @@ public class LexiconPage{
     private void writeContent() {
         String txt1 = writeHeadLine();
         String txt2 = writeWordNotes();
-        refList = refRepo.findRefsByEntryId(lexicon.getId());
+        refList = refRepo.findRefsByEntryId(lexicon.getEntryId());
         if (refVisible) { txt1 += writeRefs(); }
         if (glsVisible) { txt1 += writeGlosses(); }
         if (drvVisible) { txt1 += writeDerivs(); }
@@ -160,7 +169,7 @@ public class LexiconPage{
     private String writeHeadLine() {
         String txt = "<p> " + spanTag(lexicon.getLangMnemonic() + ". ", 1, 14, 3, 0, "333");
         txt += spanTag(lexicon.getForm() + ", ", 1, 12, 7, 1, "336");
-        txt += spanTag(speechformRepo.getOne(lexicon.getId()) + ". ", 1, 11, 5, 0, "000");
+        txt += spanTag(speechformRepo.getOne(lexicon.getEntryId()) + ". ", 1, 11, 5, 0, "000");
         txt += spanTag("\"" + lexicon.getGloss() + "\"", 2, 12, 4, 0, "555");
         txt += "</p>";
         return txt;
@@ -168,7 +177,7 @@ public class LexiconPage{
 
     private String writeWordNotes() {
         String txt = "";
-        for (EntryNoteView env : entrynoteRepo.findByEntryId(lexicon.getId())) {
+        for (EntryNoteView env : entrynoteRepo.findByEntryId(lexicon.getEntryId())) {
             txt += optStylePtag(env.getTxt(), 1, 11, 4, 0, "222");
         }
         return txt;
@@ -195,7 +204,7 @@ public class LexiconPage{
         boolean rg      = false;
         String  glosses = spanTag("Glosses: ", 1, 12, 7, 0, "228") + "<ul style=\"margin-top:3px;\">";
         for (RefGlossView refGlossView : refGlossRepo.findByEntryId(lexicon.getEntryId())) {
-            glosses += "<li " + inline(1, 11, 4, 0, "222") + ">" + refGloss;
+            glosses += "<li " + inline(1, 11, 4, 0, "222") + ">" + refGlossView.getRefgloss();
             rg = true;
         }
         if (rg) {
@@ -213,7 +222,7 @@ public class LexiconPage{
         derivs += th15 + spanTag("gloss(es) ", 2, 11, 4, 2, "228") + "</th>";
         derivs += th + spanTag("sourc(es) ", 2, 11, 4, 2, "228") + "</th></tr>";
 
-        for (RefderivView rdv : RefderivDAO.getRefderivList(lexicon.getId())) {
+        for (RefDerivView rdv : refDerivRepo.findByEntryId(lexicon.getEntryId())) {
             derivs += "<tr>";
             derivs += td + spanTag(rdv.getForm(), 2, 12, 4, 1, "2B2") + "</td>" + td + spanTag(rdv.getGlosses(), 12, 11,
                                                                                                4, 0,
@@ -238,7 +247,7 @@ public class LexiconPage{
         inflects += th10 + spanTag("gloss ", 2, 11, 4, 2, "228") + "</th>";
         inflects += th + spanTag("sourc(es) ", 2, 11, 4, 2, "228") + "</th></tr>";
 
-        for (RefinflectView refInflect : RefinflectDAO.getRefinflectList(lexicon.getId())) {
+        for (RefInflectView refInflect : refInflectRepo.findByEntryId(lexicon.getEntryId())) {
             String gloss = refInflect.getGloss();
             inflects += "<tr>";
             inflects += td + spanTag(refInflect.getForm(), 2, 12, 4, 1, "2B2") + "</td>" + td + spanTag(
@@ -262,7 +271,7 @@ public class LexiconPage{
         String  gloss, sources;
         String  elements = spanTag("Elements: ", 1, 12, 7, 0, "228");
         elements += "<ul style='margin-top:3px;'>";
-        for (RefelementView refElement : RefelementDAO.getRefelementList(lexicon.getId())) {
+        for (RefElementView refElement : refElementRepo.findByEntryId(lexicon.getEntryId())) {
             gloss   = null == refElement.getGloss() ? "" : refElement.getGloss();
             sources = null == refElement.getSources() ? "" : refElement.getSources();
             elements += "<li>";
@@ -287,7 +296,7 @@ public class LexiconPage{
         String  gloss, sources;
         String  cognates = spanTag("Cognates: ", 1, 12, 7, 0, "228");
         cognates += "<ul style='margin-top:3px;'>";
-        for (RefcognateView refCognate : RefcognateDAO.getRefcognateList(lexicon.getId())) {
+        for (RefCognateView refCognate : refCognateRepo.findByEntryId(lexicon.getEntryId())) {
             gloss   = null == refCognate.getGloss() ? "" : refCognate.getGloss();
             sources = null == refCognate.getSources() ? "" : refCognate.getSources();
             cognates += "<li>";

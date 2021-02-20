@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class RefCognateView{
 
   @Id
-  private long entryidfrom;
+  private long   entryId;
   private String lang;
   private String form;
   private String gloss;
@@ -18,12 +18,12 @@ public class RefCognateView{
 
   protected RefCognateView() {}
 
-  public long getEntryidfrom() {
-    return entryidfrom;
+  public long getEntryId() {
+    return entryId;
   }
 
-  public void setEntryidfrom(long entryidfrom) {
-    this.entryidfrom = entryidfrom;
+  public void setEntryId(long entryidfrom) {
+    this.entryId = entryidfrom;
   }
 
 

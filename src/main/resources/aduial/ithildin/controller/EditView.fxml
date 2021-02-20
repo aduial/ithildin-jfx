@@ -24,13 +24,16 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="aduial.ithildin.controller.EditController">
+<VBox prefHeight="600.0"
+      prefWidth="900.0"
+      style="-fx-background-color: white;"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="aduial.ithildin.controller.EditController">
     <children>
-        <HBox id="editorTopHBox" fx:id="editorTopHBox" prefHeight="100.0" stylesheets="@Henneth.css">
+        <HBox id="editorTopHBox" fx:id="editorTopHBox" prefHeight="100.0" stylesheets="@Mabed.css">
             <children>
                 <Label id="editorLabel" fx:id="editorLabel" prefHeight="17.0" prefWidth="179.0"
-                       stylesheets="@Henneth.css" text="ENTRY EDITOR">
+                       stylesheets="@Mabed.css" text="ENTRY EDITOR">
                     <HBox.margin>
                         <Insets left="20.0" top="16.0"/>
                     </HBox.margin>
@@ -45,7 +48,7 @@
                 <VBox prefWidth="236.0" HBox.hgrow="NEVER">
                     <children>
                         <AnchorPane id="editorSearchPane" prefHeight="122.0" prefWidth="236.0"
-                                    stylesheets="@Henneth.css" VBox.vgrow="NEVER">
+                                    stylesheets="@Mabed.css" VBox.vgrow="NEVER">
                             <children>
                                 <TextField id="searchTextField" fx:id="searchTextField" layoutX="56.0" layoutY="49.0"
                                            prefHeight="27.0" prefWidth="162.0"/>
@@ -71,7 +74,7 @@
                 </VBox>
                 <VBox HBox.hgrow="ALWAYS">
                     <children>
-                        <GridPane id="editorPane" minHeight="120.0" prefHeight="120.0" stylesheets="@Henneth.css"
+                        <GridPane id="editorPane" minHeight="120.0" prefHeight="120.0" stylesheets="@Mabed.css"
                                   VBox.vgrow="NEVER">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.86883544921875" minWidth="10.0"
@@ -167,7 +170,7 @@
                                                         <ComboBox prefHeight="27.0" prefWidth="189.0"
                                                                   promptText="choose element type"/>
                                                         <Button id="addElementButton" mnemonicParsing="false"
-                                                                stylesheets="@Henneth.css" text="ADD">
+                                                                stylesheets="@Mabed.css" text="ADD">
                                                             <FlowPane.margin>
                                                                 <Insets bottom="5.0" left="20.0" right="25.0"
                                                                         top="5.0"/>
@@ -220,7 +223,7 @@
                                                                                           promptText="choose element type"/>
                                                                                 <Button id="addElementButton"
                                                                                         mnemonicParsing="false"
-                                                                                        stylesheets="@Henneth.css"
+                                                                                        stylesheets="@Mabed.css"
                                                                                         text="ADD">
                                                                                     <FlowPane.margin>
                                                                                         <Insets bottom="5.0" left="20.0"
@@ -397,6 +400,6 @@
         </HBox>
     </children>
     <stylesheets>
-        <URL value="@Henneth.css"/>
+        <URL value="@Mabed.css"/>
     </stylesheets>
 </VBox>

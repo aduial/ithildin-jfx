@@ -9,6 +9,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface EntryNoteRepo extends CrudRepository<EntryNoteView, Long>{
 
-    ObservableList<EntryNoteView> findByEntryId(Long entryId)
+    ObservableList<EntryNoteView> findByEntryId(Long entryId);
 
 }

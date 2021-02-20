@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class RefElementView{
 
   @Id
-  private long id;
+  private long   entryId;
   private String lang;
   private String form;
   private String gloss;
@@ -18,12 +18,12 @@ public class RefElementView{
 
   protected RefElementView() {}
 
-  public long getId() {
-    return id;
+  public long getEntryId() {
+    return entryId;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setEntryId(long id) {
+    this.entryId = id;
   }
 
 

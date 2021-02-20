@@ -5,9 +5,13 @@
 <?import javafx.scene.text.*?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane maxHeight="-Infinity"
+            maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="344.0"
+            prefWidth="600.0"
+            xmlns:fx="http://javafx.com/fxml"
             fx:controller="aduial.ithildin.controller.UserController">
     <children>
         <TextField fx:id="idText" layoutX="193.0" layoutY="41.0" prefHeight="25.0" prefWidth="67.0"

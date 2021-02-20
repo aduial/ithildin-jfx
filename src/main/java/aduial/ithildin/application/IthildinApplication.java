@@ -24,6 +24,8 @@ public class IthildinApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        //Optional: Set a title for primary stage
+        primaryStage.setTitle("Eldamo Ithildin");
         context.publishEvent(new StageReadyEvent(primaryStage));
     }
 

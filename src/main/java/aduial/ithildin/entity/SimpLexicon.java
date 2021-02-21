@@ -6,7 +6,7 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name = "simplexicon")
 public class SimpLexicon{
 
   @Id

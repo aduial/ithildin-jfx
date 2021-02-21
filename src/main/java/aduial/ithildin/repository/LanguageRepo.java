@@ -1,11 +1,12 @@
 package aduial.ithildin.repository;
 
 import aduial.ithildin.entity.Language;
-import javafx.collections.ObservableList;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.ArrayList;
 
 public interface LanguageRepo extends CrudRepository<Language, Long>{
 
-    ObservableList<Language> findLanguagesByIdGreaterThanAndParentIdIsNotNull(Long id);
+    ArrayList<Language> findLanguagesByIdGreaterThanAndParentIdIsNotNull(Long id);
 
 }

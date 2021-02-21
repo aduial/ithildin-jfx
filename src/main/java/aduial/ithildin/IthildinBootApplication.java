@@ -1,7 +1,7 @@
 package aduial.ithildin;
 
 import javafx.application.Application;
-import aduial.ithildin.application.IthildinApplication;
+import aduial.ithildin.application.IthildinJfxApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class IthildinBootApplication{
 
     public static void main(String[] args) {
-        Application.launch(IthildinApplication.class, args);
+        Application.launch(IthildinJfxApplication.class, args);
     }
 
 }

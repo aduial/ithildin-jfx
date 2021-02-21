@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author Lúthien
- * ᴺS. !mabed-, y]wl2 v. “to ask [a question]” [created by Fiona Jallings, NGNS]
+ * S. athrabeth n. “conversation, debate, (lit.) interchange of words”
  */
 @Component
 @FxmlView

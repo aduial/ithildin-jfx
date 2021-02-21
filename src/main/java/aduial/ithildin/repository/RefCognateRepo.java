@@ -1,11 +1,12 @@
 package aduial.ithildin.repository;
 
 import aduial.ithildin.entity.RefCognateView;
-import javafx.collections.ObservableList;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.ArrayList;
 
 public interface RefCognateRepo extends CrudRepository<RefCognateView, Long>{
 
-    ObservableList<RefCognateView> findByEntryId(Long entryId);
+    ArrayList<RefCognateView> findByEntryId(Long entryId);
 
 }

@@ -11,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @author (original) Rene Gielen
  * @noinspection RedundantThrows
  */
-public class IthildinApplication extends Application {
+public class IthildinJfxApplication extends Application {
 
     private ConfigurableApplicationContext context;
 

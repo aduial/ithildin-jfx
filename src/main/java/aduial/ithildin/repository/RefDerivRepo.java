@@ -1,11 +1,12 @@
 package aduial.ithildin.repository;
 
 import aduial.ithildin.entity.RefDerivView;
-import javafx.collections.ObservableList;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.ArrayList;
 
 public interface RefDerivRepo extends CrudRepository<RefDerivView, Long>{
 
-    ObservableList<RefDerivView> findByEntryId(Long entryId);
+    ArrayList<RefDerivView> findByEntryId(Long entryId);
 
 }

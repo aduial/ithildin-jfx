@@ -7,6 +7,7 @@ package aduial.ithildin.view;
 
 import aduial.ithildin.entity.*;
 import aduial.ithildin.repository.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.web.WebView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class LexiconPage{
 
     @Autowired
-    private SimplexiconRepo simplexiconRepo;
+    private SimpLexiconRepo simplexiconRepo;
 
     @Autowired
     private LexiconRepo lexiconRepo;
@@ -155,7 +156,7 @@ public class LexiconPage{
     private void writeContent() {
         String txt1 = writeHeadLine();
         String txt2 = writeWordNotes();
-        refList = refRepo.findRefsByEntryId(lexicon.getEntryId());
+        refList = FXCollections.observableArrayList(refRepo.findRefsByEntryId(lexicon.getEntryId()));
         if (refVisible) { txt1 += writeRefs(); }
         if (glsVisible) { txt1 += writeGlosses(); }
         if (drvVisible) { txt1 += writeDerivs(); }

@@ -2,29 +2,40 @@ package aduial.ithildin.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import net.rgielen.fxweaver.core.FxControllerAndView;
+import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Lúthien
+ * S. henneth n. “window”
+ */
 @Component
 @FxmlView
 public class Henneth{
 
-    private final FxControllerAndView<Athrabeth, VBox> mabed;
+    @FXML private BorderPane rootLayout;
+    @FXML private StackPane  stackPane;
 
-    @FXML
-    public Button openDialogButton;
+    @FXML private MenuItem                             searchMenuItem;
+    @FXML private MenuItem                             editMenuItem;
 
-    public Henneth(FxControllerAndView<Athrabeth, VBox> mabed) {
-        this.mabed = mabed;
+    private final FxWeaver fxWeaver;
+    private final FxControllerAndView<Mabed, VBox> mabed;
+
+    public Henneth(FxWeaver fxWeaver, FxControllerAndView<Mabed, VBox> mabed) {
+        this.fxWeaver = fxWeaver;
+        this.mabed    = mabed;
     }
 
     @FXML
     public void initialize() {
-//        openDialogButton.setOnAction(
-//                actionEvent -> mabed.getController().show() );
+        stackPane.getChildren().add(mabed.getView().get());
     }
 
     public void handleSearchAction(ActionEvent actionEvent) {

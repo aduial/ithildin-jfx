@@ -5,41 +5,41 @@ import aduial.ithildin.entity.Lexicon;
 import aduial.ithildin.entity.SimpLexicon;
 import aduial.ithildin.repository.LanguageRepo;
 import aduial.ithildin.repository.LexiconRepo;
-import aduial.ithildin.repository.SimplexiconRepo;
+import aduial.ithildin.repository.SimpLexiconRepo;
 import aduial.ithildin.view.LexiconPage;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.util.StringConverter;
-import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
  * @author Lúthien
- * S. dangweth n. “answer, (lit.) *back-report” -> results pane
+ * ᴺS. !mabed-, y]wl2 v. “to ask [a question]” [created by Fiona Jallings, NGNS]
  */
 @Component
 @FxmlView
 public class Mabed{
 
-    private final FxControllerAndView<Athrabeth, VBox> athrabeth;
-
     @FXML private TextField                        searchTextField;
     @FXML private TableView<SimpLexicon>           matchTable;
-    @FXML private TableColumn<SimpLexicon, Number> idColumn;
+    @FXML private TableColumn<SimpLexicon, Long>   idColumn;
     @FXML private TableColumn<SimpLexicon, String> formColumn;
     @FXML private TableColumn<SimpLexicon, String> glossColumn;
-    @FXML private TableColumn<SimpLexicon, Number> entrytypeIdColumn;
+    @FXML private TableColumn<SimpLexicon, Long>   entrytypeIdColumn;
     @FXML private ToggleButton                     glossToggleButton;
     @FXML private ComboBox<Language>               languageChooser;
     @FXML private WebView                          primaryWebView;
@@ -52,7 +52,7 @@ public class Mabed{
     @FXML private ToggleButton                     cogToggleButton;
 
     @Autowired
-    private SimplexiconRepo simplexiconRepo;
+    private SimpLexiconRepo simpLexiconRepo;
 
     @Autowired
     private LexiconRepo lexiconRepo;
@@ -66,21 +66,52 @@ public class Mabed{
     //For MultiThreading
     private Executor exec;
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    public Mabed(FxControllerAndView<Athrabeth, VBox> athrabeth) {
-        this.athrabeth = athrabeth;
-    }
-
     @FXML
     public void initialize() {
         matchTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        populateLanguageChooser(languageRepo.findLanguagesByIdGreaterThanAndParentIdIsNotNull(1000L));
+        populateLanguageChooser(FXCollections.observableArrayList(languageRepo.findLanguagesByIdGreaterThanAndParentIdIsNotNull(1000L)));
 
         //For multithreading: Create executor that uses daemon threads:
         exec = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread(runnable);
             t.setDaemon(true);
             return t;
+        });
+
+        idColumn.setCellValueFactory(new PropertyValueFactory<SimpLexicon,Long>("entryId"));
+        formColumn.setCellValueFactory(new PropertyValueFactory<SimpLexicon,String>("form"));
+        glossColumn.setCellValueFactory(new PropertyValueFactory<SimpLexicon,String>("gloss"));
+        entrytypeIdColumn.setCellValueFactory(new PropertyValueFactory<SimpLexicon,Long>("entryTypeId"));
+        idColumn.setVisible(false);
+        entrytypeIdColumn.setVisible(false);
+
+        matchTable.setRowFactory((TableView<SimpLexicon> row) -> new TableRow<SimpLexicon>(){
+            public void updateItem(SimpLexicon entry, boolean empty) {
+                super.updateItem(entry, empty);
+
+                if (entry == null || empty) {
+                    setStyle("");
+                } else {
+                    //Now 'item' has all the info of the Person in this row
+                    if (entry.getEntrytypeId() == 1033) {
+                        //We apply now the changes in all the cells of the row
+                        for (int i = 0; i < getChildren().size(); i++) {
+                            ((Labeled) getChildren().get(i)).setTextFill(Color.FORESTGREEN);
+                            //              ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: honeydew");
+                        }
+                    } else if (entry.getEntrytypeId() == 1034) {
+                        for (int i = 0; i < getChildren().size(); i++) {
+                            ((Labeled) getChildren().get(i)).setTextFill(Color.SLATEBLUE);
+                            //              ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: lightcyan");
+                        }
+                    } else {
+                        for (int i = 0; i < getChildren().size(); i++) {
+                            ((Labeled) getChildren().get(i)).setTextFill(Color.BLACK);
+                            //              ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: white");
+                        }
+                    }
+                }
+            }
         });
     }
 
@@ -159,11 +190,14 @@ public class Mabed{
         ObservableList<SimpLexicon> simpLexiconList;
         try {
             if (searchGlosses) {
-                simpLexiconList = simplexiconRepo.findByGlossAndLanguageId(searchTextField.getText(),
-                                                                           languageChooser.getValue().getId());
+
+                simpLexiconList = FXCollections.observableArrayList(
+                        simpLexiconRepo.findByGlossAndLanguageId(searchTextField.getText(),
+                                                                 languageChooser.getValue().getId()));
             } else {
-                simpLexiconList = simplexiconRepo.findByGlossAndLanguageId(searchTextField.getText(),
-                                                                           languageChooser.getValue().getId());
+                simpLexiconList = FXCollections.observableArrayList(
+                        simpLexiconRepo.findByFormAndLanguageId(searchTextField.getText(),
+                                                                languageChooser.getValue().getId()));
             }
             populateMatchTable(simpLexiconList);
         } catch (ClassNotFoundException e) {

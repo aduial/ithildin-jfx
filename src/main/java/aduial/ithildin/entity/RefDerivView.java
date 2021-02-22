@@ -6,22 +6,22 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="refderivview")
 public class RefDerivView{
 
   @Id
-  private long entryId;
+  private Long entryId;
   private String form;
   private String glosses;
   private String sources;
 
   protected RefDerivView() {}
 
-  public long getEntryidfrom() {
+  public Long getEntryidfrom() {
     return entryId;
   }
 
-  public void setEntryidfrom(long entryidfrom) {
+  public void setEntryidfrom(Long entryidfrom) {
     this.entryId = entryId;
   }
 

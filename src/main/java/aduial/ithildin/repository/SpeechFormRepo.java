@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SpeechFormRepo extends CrudRepository<SpeechFormView, Long>{
 
-    SpeechFormView getOne(Long id);
+    SpeechFormView findSpeechFormViewByEntryId(Long entryId);
 
 }

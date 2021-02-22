@@ -6,11 +6,11 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="refcognateview")
 public class RefCognateView{
 
   @Id
-  private long   entryId;
+  private Long   entryId;
   private String lang;
   private String form;
   private String gloss;
@@ -18,11 +18,11 @@ public class RefCognateView{
 
   protected RefCognateView() {}
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long entryidfrom) {
+  public void setEntryId(Long entryidfrom) {
     this.entryId = entryidfrom;
   }
 

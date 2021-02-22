@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public interface SimpLexiconRepo extends CrudRepository<SimpLexicon, Long>{
 
-    ArrayList<SimpLexicon> findByGlossAndLanguageId(String gloss, Long langId);
+    ArrayList<SimpLexicon> findByGlossContainingAndLanguageId(String gloss, Long langId);
 
-    ArrayList<SimpLexicon> findByFormAndLanguageId(String form, Long langId);
+    ArrayList<SimpLexicon> findByFormContainingAndLanguageId(String form, Long langId);
 
 }

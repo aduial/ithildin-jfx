@@ -10,23 +10,23 @@ import javax.persistence.Id;
 public class SimpLexicon{
 
   @Id
-  private long   entryId;
+  private Long   entryId;
   private String mark;
   private String form;
-  private long languageId;
+  private Long languageId;
   private String languagename;
   private String gloss;
   private String cat;
   private String stem;
-  private long entrytypeId;
+  private Long entrytypeId;
 
   protected SimpLexicon() {}
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long id) {
+  public void setEntryId(Long id) {
     this.entryId = id;
   }
 
@@ -49,11 +49,11 @@ public class SimpLexicon{
   }
 
 
-  public long getLanguageId() {
+  public Long getLanguageId() {
     return languageId;
   }
 
-  public void setLanguageId(long languageId) {
+  public void setLanguageId(Long languageId) {
     this.languageId = languageId;
   }
 
@@ -94,11 +94,11 @@ public class SimpLexicon{
   }
 
 
-  public long getEntrytypeId() {
+  public Long getEntrytypeId() {
     return entrytypeId;
   }
 
-  public void setEntrytypeId(long entrytypeId) {
+  public void setEntrytypeId(Long entrytypeId) {
     this.entrytypeId = entrytypeId;
   }
 

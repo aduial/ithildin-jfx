@@ -10,18 +10,18 @@ import javax.persistence.Id;
 public class Cat {
 
   @Id
-  private long id;
+  private Long id;
   private String label;
-  private long parentId;
+  private Long parentId;
 
   protected Cat() {
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -35,11 +35,11 @@ public class Cat {
   }
 
 
-  public long getParentId() {
+  public Long getParentId() {
     return parentId;
   }
 
-  public void setParentId(long parentId) {
+  public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
 

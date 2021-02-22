@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Lexicon {
 
   @Id
-  private long entryId;
+  private Long entryId;
   private String form;
   private String langMnemonic;
   private String langName;
@@ -20,18 +20,19 @@ public class Lexicon {
   private String mark;
   private String eldamoPageid;
   private String orderfield;
-  private long parentId;
-  private long ordering;
-  private long entrytypeId;
+
+  private Long parentId;
+  private Long ordering;
+  private Long entrytypeId;
   private String entryType;
 
   protected Lexicon() {}
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long id) {
+  public void setEntryId(Long id) {
     this.entryId = id;
   }
 
@@ -117,29 +118,29 @@ public class Lexicon {
   }
 
 
-  public long getParentId() {
+  public Long getParentId() {
     return parentId;
   }
 
-  public void setParentId(long parentId) {
+  public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
 
 
-  public long getOrdering() {
+  public Long getOrdering() {
     return ordering;
   }
 
-  public void setOrdering(long ordering) {
+  public void setOrdering(Long ordering) {
     this.ordering = ordering;
   }
 
 
-  public long getEntrytypeId() {
+  public Long getEntrytypeId() {
     return entrytypeId;
   }
 
-  public void setEntrytypeId(long entrytypeId) {
+  public void setEntrytypeId(Long entrytypeId) {
     this.entrytypeId = entrytypeId;
   }
 

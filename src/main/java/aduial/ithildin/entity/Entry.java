@@ -10,93 +10,93 @@ import javax.persistence.Id;
 public class Entry {
 
   @Id
-  private long id;
-  private long formId;
-  private long languageId;
-  private long glossId;
-  private long catId;
-  private long ruleFormId;
-  private long fromFormId;
-  private long stemFormId;
+  private Long id;
+  private Long formId;
+  private Long languageId;
+  private Long glossId;
+  private Long catId;
+  private Long ruleFormId;
+  private Long fromFormId;
+  private Long stemFormId;
   private String tengwar;
   private String mark;
   private String eldamoPageid;
   private String orderfield;
-  private long orthoFormId;
-  private long parentId;
-  private long ordering;
-  private long entrytypeId;
+  private Long orthoFormId;
+  private Long parentId;
+  private Long ordering;
+  private Long entrytypeId;
 
   protected Entry() {}
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getFormId() {
+  public Long getFormId() {
     return formId;
   }
 
-  public void setFormId(long formId) {
+  public void setFormId(Long formId) {
     this.formId = formId;
   }
 
 
-  public long getLanguageId() {
+  public Long getLanguageId() {
     return languageId;
   }
 
-  public void setLanguageId(long languageId) {
+  public void setLanguageId(Long languageId) {
     this.languageId = languageId;
   }
 
 
-  public long getGlossId() {
+  public Long getGlossId() {
     return glossId;
   }
 
-  public void setGlossId(long glossId) {
+  public void setGlossId(Long glossId) {
     this.glossId = glossId;
   }
 
 
-  public long getCatId() {
+  public Long getCatId() {
     return catId;
   }
 
-  public void setCatId(long catId) {
+  public void setCatId(Long catId) {
     this.catId = catId;
   }
 
 
-  public long getRuleFormId() {
+  public Long getRuleFormId() {
     return ruleFormId;
   }
 
-  public void setRuleFormId(long ruleFormId) {
+  public void setRuleFormId(Long ruleFormId) {
     this.ruleFormId = ruleFormId;
   }
 
 
-  public long getFromFormId() {
+  public Long getFromFormId() {
     return fromFormId;
   }
 
-  public void setFromFormId(long fromFormId) {
+  public void setFromFormId(Long fromFormId) {
     this.fromFormId = fromFormId;
   }
 
 
-  public long getStemFormId() {
+  public Long getStemFormId() {
     return stemFormId;
   }
 
-  public void setStemFormId(long stemFormId) {
+  public void setStemFormId(Long stemFormId) {
     this.stemFormId = stemFormId;
   }
 
@@ -137,38 +137,38 @@ public class Entry {
   }
 
 
-  public long getOrthoFormId() {
+  public Long getOrthoFormId() {
     return orthoFormId;
   }
 
-  public void setOrthoFormId(long orthoFormId) {
+  public void setOrthoFormId(Long orthoFormId) {
     this.orthoFormId = orthoFormId;
   }
 
 
-  public long getParentId() {
+  public Long getParentId() {
     return parentId;
   }
 
-  public void setParentId(long parentId) {
+  public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
 
 
-  public long getOrdering() {
+  public Long getOrdering() {
     return ordering;
   }
 
-  public void setOrdering(long ordering) {
+  public void setOrdering(Long ordering) {
     this.ordering = ordering;
   }
 
 
-  public long getEntrytypeId() {
+  public Long getEntrytypeId() {
     return entrytypeId;
   }
 
-  public void setEntrytypeId(long entrytypeId) {
+  public void setEntrytypeId(Long entrytypeId) {
     this.entrytypeId = entrytypeId;
   }
 

@@ -6,30 +6,30 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="entrynoteview")
 public class EntryNoteView{
 
   @Id
-  private long entryId;
-  private long ordering;
+  private Long entryId;
+  private Long ordering;
   private String txt;
 
   protected EntryNoteView() {}
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long entryId) {
+  public void setEntryId(Long entryId) {
     this.entryId = entryId;
   }
 
 
-  public long getOrdering() {
+  public Long getOrdering() {
     return ordering;
   }
 
-  public void setOrdering(long ordering) {
+  public void setOrdering(Long ordering) {
     this.ordering = ordering;
   }
 

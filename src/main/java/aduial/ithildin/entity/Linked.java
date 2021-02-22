@@ -10,87 +10,87 @@ import javax.persistence.Id;
 public class Linked {
 
   @Id
-  private long id;
-  private long linkedtypeId;
-  private long entryId;
-  private long refId;
-  private long toLanguageId;
-  private long toEntryId;
-  private long ordering;
-  private long sourceId;
+  private Long id;
+  private Long linkedtypeId;
+  private Long entryId;
+  private Long refId;
+  private Long toLanguageId;
+  private Long toEntryId;
+  private Long ordering;
+  private Long sourceId;
   private String mark;
   private String source;
 
   protected Linked() {}
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getLinkedtypeId() {
+  public Long getLinkedtypeId() {
     return linkedtypeId;
   }
 
-  public void setLinkedtypeId(long linkedtypeId) {
+  public void setLinkedtypeId(Long linkedtypeId) {
     this.linkedtypeId = linkedtypeId;
   }
 
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long entryId) {
+  public void setEntryId(Long entryId) {
     this.entryId = entryId;
   }
 
 
-  public long getRefId() {
+  public Long getRefId() {
     return refId;
   }
 
-  public void setRefId(long refId) {
+  public void setRefId(Long refId) {
     this.refId = refId;
   }
 
 
-  public long getToLanguageId() {
+  public Long getToLanguageId() {
     return toLanguageId;
   }
 
-  public void setToLanguageId(long toLanguageId) {
+  public void setToLanguageId(Long toLanguageId) {
     this.toLanguageId = toLanguageId;
   }
 
 
-  public long getToEntryId() {
+  public Long getToEntryId() {
     return toEntryId;
   }
 
-  public void setToEntryId(long toEntryId) {
+  public void setToEntryId(Long toEntryId) {
     this.toEntryId = toEntryId;
   }
 
 
-  public long getOrdering() {
+  public Long getOrdering() {
     return ordering;
   }
 
-  public void setOrdering(long ordering) {
+  public void setOrdering(Long ordering) {
     this.ordering = ordering;
   }
 
 
-  public long getSourceId() {
+  public Long getSourceId() {
     return sourceId;
   }
 
-  public void setSourceId(long sourceId) {
+  public void setSourceId(Long sourceId) {
     this.sourceId = sourceId;
   }
 

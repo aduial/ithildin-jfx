@@ -10,18 +10,18 @@ import javax.persistence.Id;
 public class Source {
 
   @Id
-  private long id;
+  private Long id;
   private String name;
   private String prefix;
-  private long sourcetypeId;
+  private Long sourcetypeId;
 
   protected Source() {}
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -44,11 +44,11 @@ public class Source {
   }
 
 
-  public long getSourcetypeId() {
+  public Long getSourcetypeId() {
     return sourcetypeId;
   }
 
-  public void setSourcetypeId(long sourcetypeId) {
+  public void setSourcetypeId(Long sourcetypeId) {
     this.sourcetypeId = sourcetypeId;
   }
 

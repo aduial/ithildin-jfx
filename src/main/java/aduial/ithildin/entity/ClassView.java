@@ -6,24 +6,24 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="classview")
 public class ClassView{
 
   @Id
-  private long entryid;
+  private Long entryid;
   private String mark;
-  private long lgorder;
+  private Long lgorder;
   private String grammartxt;
   private String grammartypetxt;
-  private long grammarid;
+  private Long grammarid;
 
   protected ClassView() {}
 
-  public long getEntryid() {
+  public Long getEntryid() {
     return entryid;
   }
 
-  public void setEntryid(long entryid) {
+  public void setEntryid(Long entryid) {
     this.entryid = entryid;
   }
 
@@ -37,11 +37,11 @@ public class ClassView{
   }
 
 
-  public long getLgorder() {
+  public Long getLgorder() {
     return lgorder;
   }
 
-  public void setLgorder(long lgorder) {
+  public void setLgorder(Long lgorder) {
     this.lgorder = lgorder;
   }
 
@@ -64,11 +64,11 @@ public class ClassView{
   }
 
 
-  public long getGrammarid() {
+  public Long getGrammarid() {
     return grammarid;
   }
 
-  public void setGrammarid(long grammarid) {
+  public void setGrammarid(Long grammarid) {
     this.grammarid = grammarid;
   }
 

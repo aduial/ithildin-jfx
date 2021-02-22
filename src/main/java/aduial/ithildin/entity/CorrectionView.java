@@ -6,12 +6,12 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="correctionview")
 public class CorrectionView{
 
   @Id
-  private long refidfrom;
-  private long refidto;
+  private Long refidfrom;
+  private Long refidto;
   private String formtxt;
   private String sourcename;
   private String sourceprefix;
@@ -20,20 +20,20 @@ public class CorrectionView{
 
   protected CorrectionView() {}
 
-  public long getRefidfrom() {
+  public Long getRefidfrom() {
     return refidfrom;
   }
 
-  public void setRefidfrom(long refidfrom) {
+  public void setRefidfrom(Long refidfrom) {
     this.refidfrom = refidfrom;
   }
 
 
-  public long getRefidto() {
+  public Long getRefidto() {
     return refidto;
   }
 
-  public void setRefidto(long refidto) {
+  public void setRefidto(Long refidto) {
     this.refidto = refidto;
   }
 

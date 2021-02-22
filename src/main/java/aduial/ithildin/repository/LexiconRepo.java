@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface LexiconRepo extends CrudRepository<Lexicon, Long>{
 
-    Lexicon findFirstByEntryId(Long entryId);
+    Lexicon findByEntryId(Long entryId);
 
 }

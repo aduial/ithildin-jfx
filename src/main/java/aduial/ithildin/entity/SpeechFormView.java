@@ -6,21 +6,21 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="speechformview")
 public class SpeechFormView{
 
   @Id
-  private long id;
+  private Long entryId;
   private String txt;
 
   protected SpeechFormView() {}
 
-  public long getId() {
-    return id;
+  public Long getEntryId() {
+    return entryId;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setEntryId(Long entryId) {
+    this.entryId = entryId;
   }
 
 

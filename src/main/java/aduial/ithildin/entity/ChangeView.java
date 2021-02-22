@@ -6,12 +6,12 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="changeview")
 public class ChangeView{
 
   @Id
-  private long refidfrom;
-  private long lgorder;
+  private Long refidfrom;
+  private Long lgorder;
   private String formtxt;
   private String sourcename;
   private String sourceprefix;
@@ -21,20 +21,20 @@ public class ChangeView{
   protected ChangeView() {
   }
 
-  public long getRefidfrom() {
+  public Long getRefidfrom() {
     return refidfrom;
   }
 
-  public void setRefidfrom(long refidfrom) {
+  public void setRefidfrom(Long refidfrom) {
     this.refidfrom = refidfrom;
   }
 
 
-  public long getLgorder() {
+  public Long getLgorder() {
     return lgorder;
   }
 
-  public void setLgorder(long lgorder) {
+  public void setLgorder(Long lgorder) {
     this.lgorder = lgorder;
   }
 

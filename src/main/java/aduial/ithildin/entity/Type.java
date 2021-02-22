@@ -10,17 +10,17 @@ import javax.persistence.Id;
 public class Type {
 
   @Id
-  private long id;
+  private Long id;
   private String txt;
-  private long parentId;
+  private Long parentId;
 
   protected Type() {}
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -34,11 +34,11 @@ public class Type {
   }
 
 
-  public long getParentId() {
+  public Long getParentId() {
     return parentId;
   }
 
-  public void setParentId(long parentId) {
+  public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
 

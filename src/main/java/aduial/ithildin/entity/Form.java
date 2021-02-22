@@ -10,17 +10,17 @@ import javax.persistence.Id;
 public class Form {
 
   @Id
-  private long id;
+  private Long id;
   private String txt;
   private String normaltxt;
 
   protected Form() {}
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

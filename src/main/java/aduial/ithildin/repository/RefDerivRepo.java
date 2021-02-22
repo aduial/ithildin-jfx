@@ -7,6 +7,6 @@ import java.util.ArrayList;
 
 public interface RefDerivRepo extends CrudRepository<RefDerivView, Long>{
 
-    ArrayList<RefDerivView> findByEntryId(Long entryId);
+    ArrayList<RefDerivView> findByEntryId(Long entryIdFrom);
 
 }

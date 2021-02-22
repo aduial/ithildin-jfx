@@ -10,72 +10,72 @@ import javax.persistence.Id;
 public class Ref {
 
   @Id
-  private long id;
-  private long entryId;
-  private long formId;
-  private long glossId;
-  private long languageId;
-  private long sourceId;
+  private Long id;
+  private Long entryId;
+  private Long formId;
+  private Long glossId;
+  private Long languageId;
+  private Long sourceId;
   private String mark;
-  private long ruleFromformId;
-  private long ruleRlformId;
-  private long ruleRuleformId;
-  private long ordering;
-  private long entrytypeId;
+  private Long ruleFromformId;
+  private Long ruleRlformId;
+  private Long ruleRuleformId;
+  private Long ordering;
+  private Long entrytypeId;
   private String source;
 
   protected Ref() {}
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long entryId) {
+  public void setEntryId(Long entryId) {
     this.entryId = entryId;
   }
 
 
-  public long getFormId() {
+  public Long getFormId() {
     return formId;
   }
 
-  public void setFormId(long formId) {
+  public void setFormId(Long formId) {
     this.formId = formId;
   }
 
 
-  public long getGlossId() {
+  public Long getGlossId() {
     return glossId;
   }
 
-  public void setGlossId(long glossId) {
+  public void setGlossId(Long glossId) {
     this.glossId = glossId;
   }
 
 
-  public long getLanguageId() {
+  public Long getLanguageId() {
     return languageId;
   }
 
-  public void setLanguageId(long languageId) {
+  public void setLanguageId(Long languageId) {
     this.languageId = languageId;
   }
 
 
-  public long getSourceId() {
+  public Long getSourceId() {
     return sourceId;
   }
 
-  public void setSourceId(long sourceId) {
+  public void setSourceId(Long sourceId) {
     this.sourceId = sourceId;
   }
 
@@ -89,47 +89,47 @@ public class Ref {
   }
 
 
-  public long getRuleFromformId() {
+  public Long getRuleFromformId() {
     return ruleFromformId;
   }
 
-  public void setRuleFromformId(long ruleFromformId) {
+  public void setRuleFromformId(Long ruleFromformId) {
     this.ruleFromformId = ruleFromformId;
   }
 
 
-  public long getRuleRlformId() {
+  public Long getRuleRlformId() {
     return ruleRlformId;
   }
 
-  public void setRuleRlformId(long ruleRlformId) {
+  public void setRuleRlformId(Long ruleRlformId) {
     this.ruleRlformId = ruleRlformId;
   }
 
 
-  public long getRuleRuleformId() {
+  public Long getRuleRuleformId() {
     return ruleRuleformId;
   }
 
-  public void setRuleRuleformId(long ruleRuleformId) {
+  public void setRuleRuleformId(Long ruleRuleformId) {
     this.ruleRuleformId = ruleRuleformId;
   }
 
 
-  public long getOrdering() {
+  public Long getOrdering() {
     return ordering;
   }
 
-  public void setOrdering(long ordering) {
+  public void setOrdering(Long ordering) {
     this.ordering = ordering;
   }
 
 
-  public long getEntrytypeId() {
+  public Long getEntrytypeId() {
     return entrytypeId;
   }
 
-  public void setEntrytypeId(long entrytypeId) {
+  public void setEntrytypeId(Long entrytypeId) {
     this.entrytypeId = entrytypeId;
   }
 

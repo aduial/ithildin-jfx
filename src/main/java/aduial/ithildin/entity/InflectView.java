@@ -6,33 +6,33 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="inflectview")
 public class InflectView{
 
   @Id
-  private long entryidfrom;
-  private long refidfrom;
+  private Long entryidfrom;
+  private Long refidfrom;
   private String formtxt;
-  private long lgorder;
+  private Long lgorder;
   private String inflection;
   private String inflecttypetxt;
 
   protected InflectView() {}
 
-  public long getEntryidfrom() {
+  public Long getEntryidfrom() {
     return entryidfrom;
   }
 
-  public void setEntryidfrom(long entryidfrom) {
+  public void setEntryidfrom(Long entryidfrom) {
     this.entryidfrom = entryidfrom;
   }
 
 
-  public long getRefidfrom() {
+  public Long getRefidfrom() {
     return refidfrom;
   }
 
-  public void setRefidfrom(long refidfrom) {
+  public void setRefidfrom(Long refidfrom) {
     this.refidfrom = refidfrom;
   }
 
@@ -46,11 +46,11 @@ public class InflectView{
   }
 
 
-  public long getLgorder() {
+  public Long getLgorder() {
     return lgorder;
   }
 
-  public void setLgorder(long lgorder) {
+  public void setLgorder(Long lgorder) {
     this.lgorder = lgorder;
   }
 

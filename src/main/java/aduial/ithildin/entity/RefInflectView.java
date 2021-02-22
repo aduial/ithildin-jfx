@@ -6,11 +6,11 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="refinflectview")
 public class RefInflectView{
 
   @Id
-  private long entryId;
+  private Long entryId;
   private String form;
   private String grammar;
   private String gloss;
@@ -18,11 +18,11 @@ public class RefInflectView{
 
   protected RefInflectView() {}
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long entryId) {
+  public void setEntryId(Long entryId) {
     this.entryId = entryId;
   }
 

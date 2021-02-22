@@ -6,14 +6,14 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="derivview")
 public class DerivView{
 
   @Id
-  private long entryidfrom;
-  private long entryidto;
-  private long refidfrom;
-  private long refidto;
+  private Long entryidfrom;
+  private Long entryidto;
+  private Long refidfrom;
+  private Long refidto;
   private String languageto;
   private String formtxt;
   private String sourcename;
@@ -22,42 +22,42 @@ public class DerivView{
   private String sourcetypetxt;
   private String entrygloss;
   private String refgloss;
-  private long lforder;
+  private Long lforder;
 
   protected DerivView() {}
 
-  public long getEntryidfrom() {
+  public Long getEntryidfrom() {
     return entryidfrom;
   }
 
-  public void setEntryidfrom(long entryidfrom) {
+  public void setEntryidfrom(Long entryidfrom) {
     this.entryidfrom = entryidfrom;
   }
 
 
-  public long getEntryidto() {
+  public Long getEntryidto() {
     return entryidto;
   }
 
-  public void setEntryidto(long entryidto) {
+  public void setEntryidto(Long entryidto) {
     this.entryidto = entryidto;
   }
 
 
-  public long getRefidfrom() {
+  public Long getRefidfrom() {
     return refidfrom;
   }
 
-  public void setRefidfrom(long refidfrom) {
+  public void setRefidfrom(Long refidfrom) {
     this.refidfrom = refidfrom;
   }
 
 
-  public long getRefidto() {
+  public Long getRefidto() {
     return refidto;
   }
 
-  public void setRefidto(long refidto) {
+  public void setRefidto(Long refidto) {
     this.refidto = refidto;
   }
 
@@ -134,11 +134,11 @@ public class DerivView{
   }
 
 
-  public long getLforder() {
+  public Long getLforder() {
     return lforder;
   }
 
-  public void setLforder(long lforder) {
+  public void setLforder(Long lforder) {
     this.lforder = lforder;
   }
 

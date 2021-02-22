@@ -6,20 +6,20 @@ import javax.persistence.Id;
 /**
  * Created by luthien on 18/02/2021.
  */
-@Entity
+@Entity(name="refglossview")
 public class RefGlossView{
 
   @Id
-  private long entryId;
+  private Long entryId;
   private String refgloss;
 
   protected RefGlossView() {}
 
-  public long getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
-  public void setEntryId(long entryId) {
+  public void setEntryId(Long entryId) {
     this.entryId = entryId;
   }
 

@@ -1,5 +1,5 @@
 # ithildin-jfx
-JavaFX / Spring Boot JPA / SQLite client application for Eldamo-DB (1)
+JavaFX / Spring Boot JPA / H2 client application for Eldamo-DB (1)
 
 UPDATE dd. February 19, 2021
 
@@ -15,6 +15,13 @@ by Rene Gielen.
 
 Using Spring Boot offers a couple of advantages, like the support of the JPA framework for 
 repository classes. It makes the whole thing a lot simpler and easier to maintain.
+
+I switched from SQLite to H2 for database engine, because the latter is written in Java and very easy
+to use with Spring Boot.
+
+SQLite is written in C and probably faster, but it being platform dependent might complicate packaging the 
+application which is already more than daunting as it is. Besides, nobody would notice the difference 
+in database performance with this app.
 
 ## 2: simplify database schema and update contents to the latest version of Eldamo
 

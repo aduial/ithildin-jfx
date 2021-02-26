@@ -1,7 +1,15 @@
 # ithildin-jfx
 JavaFX / Spring Boot JPA / H2 client application for Eldamo-DB (1)
 
-UPDATE dd. February 19, 2021
+
+UPDATE february 26, 2021
+Preview version for Mac OS is available in `dist/Ithildin.app.zip`
+
+This version does not yet have the Java runtime included, so make sure you have Java v.11 available on your system.
+Click the `dist` folder in the source tree above, download `Ithildin.app.zip` to
+your `Applications` folder and run it in the usual way.
+
+UPDATE february 19, 2021
 
 This is the second implementation of the Ithildin application, picking up where that one was left. 
 This is what we have in mind for now:

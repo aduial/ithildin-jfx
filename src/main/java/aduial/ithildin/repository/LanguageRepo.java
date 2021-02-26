@@ -7,6 +7,6 @@ import java.util.ArrayList;
 
 public interface LanguageRepo extends CrudRepository<Language, Long>{
 
-    ArrayList<Language> findLanguagesByIdIsLessThanAndParentIdIsNotNull(Long id);
+    ArrayList<Language> findLanguagesByIdIsLessThanAndIdIsNotAndParentIdIsNotNullAndParentIdIsNot(Long id, Long idIsNot, Long parentId);
 
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308"
+            maxWidth="1.7976931348623157E308"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="600.0"
+            prefWidth="800.0"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="aduial.ithildin.controller.SimplexiconController">
+    <children>
+        <Label layoutX="10.0" layoutY="20.0" text="Search form"/>
+        <TextField fx:id="searchFormText" layoutX="10.0" layoutY="40.0" onKeyReleased="#searchByForm"
+                   prefHeight="27.0" prefWidth="150.0" promptText="search in forms"/>
+        <Label layoutX="10.0" layoutY="90.0" prefHeight="17.0" prefWidth="81.0" text="Search gloss"/>
+        <TextField fx:id="searchGlossText" layoutX="10.0" layoutY="110.0" onKeyReleased="#searchByGloss"
+                   prefHeight="27.0" prefWidth="150.0" promptText="search in glosses"/>
+        <ComboBox fx:id="languageChooser" layoutX="10.0" layoutY="160.0" onAction="#requery"
+                  prefHeight="27.0" prefWidth="155.0" promptText="choose language"/>
+        <Separator layoutX="178.0" layoutY="8.0" maxHeight="1.7976931348623157E308" orientation="VERTICAL"
+                   prefWidth="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="15.0"/>
+        <TableView fx:id="simplexiconTable" editable="false" layoutX="185.0" layoutY="-1.0"
+                   maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   prefHeight="437.0" prefWidth="615.0" tableMenuButtonVisible="true"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="185.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
+            <columns>
+                <TableColumn fx:id="formColumn" maxWidth="5000.0" minWidth="100.0" prefWidth="200.0" text="form"/>
+                <TableColumn fx:id="glossColumn" maxWidth="5000.0" minWidth="100.0" prefWidth="200.0" text="gloss"/>
+                <TableColumn fx:id="stemColumn" maxWidth="5000.0" minWidth="80.0" prefWidth="133.0" text="stem"/>
+                <TableColumn fx:id="catColumn" maxWidth="5000.0" minWidth="80.0" prefWidth="120.0" text="category"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

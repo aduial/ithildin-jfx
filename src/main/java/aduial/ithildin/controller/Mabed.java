@@ -4,22 +4,15 @@ import aduial.ithildin.entity.*;
 import aduial.ithildin.repository.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.util.StringConverter;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 /**
  * @author Lúthien
@@ -29,12 +22,13 @@ import java.util.concurrent.Executors;
 @FxmlView
 public class Mabed{
 
-    private String table = "<table style='margin-top:3px; border: 1px solid black; border-collapse: collapse;'>";
-    private String tr    = "<tr style='border: 1px solid black;'>";
-    private String th    = "<th style='border: 1px solid black;'>";
-    private String th10  = "<th style='border: 1px solid black; width: 10%;'>";
-    private String th15  = "<th style='border: 1px solid black; width: 15%;'>";
-    private String td    = "<td style='border: 1px solid black; padding: 2 4px;'>";
+    private static final String TABLE = "<table style='margin-top:3px; border: 1px solid black; border-collapse: collapse;'>";
+    private static final String TH    = "<th style='border: 1px solid black;'>";
+    private static final String TH10  = "<th style='border: 1px solid black; width: 10%;'>";
+    private static final String TH15  = "<th style='border: 1px solid black; width: 15%;'>";
+    private static final String TD    = "<td style='border: 1px solid black; padding: 2 4px;'>";
+    private static final String ENDTH = "</th>";
+    private static final String ENDTD = "</td>";
 
     @FXML private TextField                        searchTextField;
     @FXML private TableView<SimpLexicon>           matchTable;
@@ -65,6 +59,7 @@ public class Mabed{
 
     @Autowired
     private SimpLexiconRepo simpLexiconRepo;
+    private SimpLexicon selectSimplexicon;
 
     @Autowired
     private LanguageRepo languageRepo;
@@ -90,7 +85,6 @@ public class Mabed{
     @Autowired
     private RefCognateRepo refCognateRepo;
 
-    private Entry   parent;
     private WebView wv1;
     private WebView wv2;
 
@@ -108,20 +102,17 @@ public class Mabed{
         writeContent();
     }
 
-    //For MultiThreading
-    private Executor exec;
-
     @FXML
     public void initialize() {
         matchTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        populateLanguageChooser(FXCollections.observableArrayList(languageRepo.findLanguagesByIdIsLessThanAndParentIdIsNotNull(1000L)));
+        populateLanguageChooser(FXCollections.observableArrayList(languageRepo.findLanguagesByIdIsLessThanAndIdIsNotAndParentIdIsNotNullAndParentIdIsNot(1000L, 127L, 127L)));
 
         //For multithreading: Create executor that uses daemon threads:
-        exec = Executors.newCachedThreadPool((runnable) -> {
-            Thread t = new Thread(runnable);
-            t.setDaemon(true);
-            return t;
-        });
+//        ExecutorService exec = Executors.newCachedThreadPool((runnable) -> {
+//            Thread t = new Thread(runnable);
+//            t.setDaemon(true);
+//            return t;
+//        });
 
         idColumn.setCellValueFactory(new PropertyValueFactory<SimpLexicon,Long>("entryId"));
         formColumn.setCellValueFactory(new PropertyValueFactory<SimpLexicon,String>("form"));
@@ -131,6 +122,7 @@ public class Mabed{
         entrytypeIdColumn.setVisible(false);
 
         matchTable.setRowFactory((TableView<SimpLexicon> row) -> new TableRow<SimpLexicon>(){
+            @Override
             public void updateItem(SimpLexicon entry, boolean empty) {
                 super.updateItem(entry, empty);
 
@@ -142,17 +134,14 @@ public class Mabed{
                         //We apply now the changes in all the cells of the row
                         for (int i = 0; i < getChildren().size(); i++) {
                             ((Labeled) getChildren().get(i)).setTextFill(Color.FORESTGREEN);
-                            //              ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: honeydew");
                         }
                     } else if (entry.getEntrytypeId() == 1034) {
                         for (int i = 0; i < getChildren().size(); i++) {
                             ((Labeled) getChildren().get(i)).setTextFill(Color.SLATEBLUE);
-                            //              ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: lightcyan");
                         }
                     } else {
                         for (int i = 0; i < getChildren().size(); i++) {
                             ((Labeled) getChildren().get(i)).setTextFill(Color.BLACK);
-                            //              ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: white");
                         }
                     }
                 }
@@ -160,7 +149,7 @@ public class Mabed{
         });
     }
 
-    public void toggleFormOrGloss(ActionEvent actionEvent) {
+    public void toggleFormOrGloss() {
         searchGlosses = glossToggleButton.isSelected();
         if (searchGlosses) {
             glossToggleButton.setText("glosses");
@@ -170,63 +159,60 @@ public class Mabed{
         reallyDoSearchNow();
     }
 
-    public void doSearch(KeyEvent keyEvent) {
+    public void doSearch() {
         reallyDoSearchNow();
     }
 
-    public void requery(ActionEvent actionEvent) {
+    public void requery() {
         reallyDoSearchNow();
     }
 
-    public void keyReleased(KeyEvent keyEvent) {
+    public void keyReleased() {
         showSelectedLexicon();
     }
 
-    public void rowClicked(MouseEvent mouseEvent) {
+    public void rowClicked() {
         showSelectedLexicon();
     }
 
-    public void scrollFinished(ScrollEvent scrollEvent) {
-        showSelectedLexicon();
+    public void scrollFinished() {
+//        showSelectedLexicon();
     }
 
 
-
-
-
-    public void refToggleButtonChanged(ActionEvent actionEvent) {
+    public void refToggleButtonChanged() {
         refVisible = refToggleButton.isSelected();
         writeContent();
     }
 
-    public void glsToggleButtonChanged(ActionEvent actionEvent) {
+    public void glsToggleButtonChanged() {
         glsVisible = glsToggleButton.isSelected();
         writeContent();
     }
 
-    public void drvToggleButtonChanged(ActionEvent actionEvent) {
+    public void drvToggleButtonChanged() {
         drvVisible = drvToggleButton.isSelected();
         writeContent();
     }
 
-    public void iflToggleButtonChanged(ActionEvent actionEvent) {
+    public void iflToggleButtonChanged() {
         iflVisible = iflToggleButton.isSelected();
         writeContent();
     }
 
-    public void elmToggleButtonChanged(ActionEvent actionEvent) {
+    public void elmToggleButtonChanged() {
         elmVisible = elmToggleButton.isSelected();
         writeContent();
     }
 
-    public void cogToggleButtonChanged(ActionEvent actionEvent) {
+    public void cogToggleButtonChanged() {
         cogVisible = cogToggleButton.isSelected();
         writeContent();
     }
 
     private void showSelectedLexicon(){
-        SimpLexicon selected = matchTable.getSelectionModel().getSelectedItem();
-        selectedLexicon = lexiconRepo.findByEntryId(selected.getEntryId());
+        selectSimplexicon = matchTable.getSelectionModel().getSelectedItem();
+        selectedLexicon = lexiconRepo.findByEntryId(selectSimplexicon.getEntryId());
         display(primaryWebView, secondaryWebView);
     }
 
@@ -252,7 +238,6 @@ public class Mabed{
             populateMatchTable(simpLexiconList);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-//            throw e;
         }
     }
 
@@ -342,17 +327,17 @@ public class Mabed{
     private String writeDerivs() {
         boolean dvs    = false;
         String  derivs = spanTag("Derivations: ", 1, 12, 7, 0, "228");
-        derivs += table + "<tr>";
-        derivs += th + spanTag("form ", 2, 11, 4, 2, "228") + "</th>";
-        derivs += th15 + spanTag("gloss(es) ", 2, 11, 4, 2, "228") + "</th>";
-        derivs += th + spanTag("sourc(es) ", 2, 11, 4, 2, "228") + "</th></tr>";
+        derivs += TABLE + "<tr>";
+        derivs += TH + spanTag("form ", 2, 11, 4, 2, "228") + ENDTH;
+        derivs += TH15 + spanTag("gloss(es) ", 2, 11, 4, 2, "228") + ENDTH;
+        derivs += TH + spanTag("sourc(es) ", 2, 11, 4, 2, "228") + "</th></tr>";
 
         for (RefDerivView rdv : refDerivRepo.findByEntryId(selectedLexicon.getEntryId())) {
             derivs += "<tr>";
-            derivs += td + spanTag(rdv.getForm(), 2, 12, 4, 1, "2B2") + "</td>" + td + spanTag(rdv.getGlosses(), 12, 11,
+            derivs += TD + spanTag(rdv.getForm(), 2, 12, 4, 1, "2B2") + ENDTD + TD + spanTag(rdv.getGlosses(), 12, 11,
                                                                                                4, 0,
-                                                                                               "B22") + "</td>" + td + spanTag(
-                    rdv.getSources(), 1, 12, 4, 0, "555") + "</td>";
+                                                                                               "B22") + ENDTD + TD + spanTag(
+                    rdv.getSources(), 1, 12, 4, 0, "555") + ENDTD;
             derivs += "</tr>";
             dvs = true;
         }
@@ -366,21 +351,21 @@ public class Mabed{
     private String writeInflects() {
         boolean ifl      = false;
         String  inflects = spanTag("Inflections: ", 1, 12, 7, 0, "228");
-        inflects += table + "<tr>";
-        inflects += th + spanTag("form(s) ", 2, 11, 4, 2, "228") + "</th>";
-        inflects += th15 + spanTag("speech ", 2, 11, 4, 2, "228") + "</th>";
-        inflects += th10 + spanTag("gloss ", 2, 11, 4, 2, "228") + "</th>";
-        inflects += th + spanTag("sourc(es) ", 2, 11, 4, 2, "228") + "</th></tr>";
+        inflects += TABLE + "<tr>";
+        inflects += TH + spanTag("form(s) ", 2, 11, 4, 2, "228") + ENDTH;
+        inflects += TH15 + spanTag("speech ", 2, 11, 4, 2, "228") + ENDTH;
+        inflects += TH10 + spanTag("gloss ", 2, 11, 4, 2, "228") + ENDTH;
+        inflects += TH + spanTag("sourc(es) ", 2, 11, 4, 2, "228") + "</th></tr>";
 
         for (RefInflectView refInflect : refInflectRepo.findByEntryId(selectedLexicon.getEntryId())) {
             String gloss = refInflect.getGloss();
             inflects += "<tr>";
-            inflects += td + spanTag(refInflect.getForm(), 2, 12, 4, 1, "2B2") + "</td>" + td + spanTag(
-                    refInflect.getGrammar(), 2, 12, 4, 0, "22B") + "</td>" + td + (
+            inflects += TD + spanTag(refInflect.getForm(), 2, 12, 4, 1, "2B2") + ENDTD + TD + spanTag(
+                    refInflect.getGrammar(), 2, 12, 4, 0, "22B") + ENDTD + TD + (
                                 gloss != null ? spanTag(refInflect.getGloss(), 12, 11, 4, 0,
-                                                        "B22") : "") + "</td>" + td + spanTag(refInflect.getSources(),
+                                                        "B22") : "") + ENDTD + TD + spanTag(refInflect.getSources(),
                                                                                               1, 12, 4, 0,
-                                                                                              "555") + "</td>";
+                                                                                              "555") + ENDTD;
             inflects += "</tr>";
             ifl = true;
         }
@@ -443,7 +428,7 @@ public class Mabed{
 
     private String optStylePtag(String txt, int fam, int px, int wei, int sty, String col) {
         if (txt.toLowerCase().contains("<p>")) {
-            return txt.replaceAll("<p>", "<p " + inline(fam, px, wei, sty, col) + ">");
+            return txt.replace("<p>", "<p " + inline(fam, px, wei, sty, col) + ">");
         } else {
             return wholePtag(txt, fam, px, wei, sty, col);
         }
@@ -455,10 +440,6 @@ public class Mabed{
 
     private String spanTag(String txt, int fam, int px, int wei, int sty, String col) {
         return "<span " + inline(fam, px, wei, sty, col) + ">" + txt + "</span>";
-    }
-
-    private String startPtag(String txt, int fam, int px, int wei, int sty, String col) {
-        return "<p " + inline(fam, px, wei, sty, col) + ">" + txt;
     }
 
 
